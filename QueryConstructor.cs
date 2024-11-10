@@ -72,7 +72,7 @@ public class QueryConstructor
     {
         string illegalCharacter1 = "\'"; 
         string illegalCharacter2 = "\"";
-        string illegalCharacter3 = "\";\"";
+        string illegalCharacter3 = "\";";
         string illegalCharacter4 = "\\";
         string illegalCharacter5 = "--";
 
