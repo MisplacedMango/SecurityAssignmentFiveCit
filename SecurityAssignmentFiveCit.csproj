@@ -12,8 +12,4 @@
     <PackageReference Include="Npgsql" Version="8.0.5" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SecurityAssignmentFiveCitAuthentication\SecurityAssignmentFiveCitAuthentication.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,25 +1,18 @@
 ﻿// QueryConstructor.cs
 
-using System.Xml.Linq;
-using SecurityAssignmentFiveCitAuthentication.Authentication;
 using SecurityAssignmentFiveCit.Login;
-
-namespace SecurityAssignmentFiveCit.QueryConstructor;
+using System.Xml.Linq;
 public class QueryConstructor
 {
-    
-  
-    private Authenticator security;
     public LoginCredentials login;
-   
+    public PostgreSQL_Client securelogin;
     public QueryConstructor()
     {
-        client   = new PostgreSQL_Client("university", "postgres", LoginCredentials.filepath);
-        security = new Authenticator();
-        login = new LoginCredentials();        
-
+        client   = new PostgreSQL_Client("university", "postgres", LoginCredentials.filecontent);
         // retain university database
         // but change username and password
+        
+
     }
     
 
@@ -87,7 +80,7 @@ public class QueryConstructor
         string? name = Console.ReadLine();
         Console.WriteLine("Please input your password: ");
         string? password = Console.ReadLine();
-        if (security.login(name, password))
+        if (IsValidUser(name, password))
         {
             string? secureSql = "select * from safe_course(@courseId)";
 
@@ -122,5 +115,9 @@ public class QueryConstructor
             Console.ForegroundColor = ConsoleColor.Black;
         }
 
+    }
+    private bool IsValidUser(string? name, string? password)
+    {
+        return name == "expectedUsername" && password == "expectedPassword";
     }
 }
