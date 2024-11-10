@@ -1,19 +1,23 @@
 ﻿// QueryConstructor.cs
 
 using System.Xml.Linq;
-using SecurityAssignmentFiveCitAuthenticationAuthenticator;
+using SecurityAssignmentFiveCitAuthentication.Authentication;
+using SecurityAssignmentFiveCit.Login;
+
+namespace SecurityAssignmentFiveCit.QueryConstructor;
 public class QueryConstructor
 {
-    public static string filepath = "/C:/Users/nikol/OneDrive - Roskilde Universitet/Documents/NotAtAllPostGres.txt/";
-
-    public static string filecontent = File.ReadAllText(filepath);
+    
+  
     private Authenticator security;
+    public LoginCredentials login;
    
     public QueryConstructor()
     {
-        client = new PostgreSQL_Client("university", "postgres", filecontent);
+        client   = new PostgreSQL_Client("university", "postgres", LoginCredentials.filepath);
         security = new Authenticator();
-        
+        login = new LoginCredentials();        
+
         // retain university database
         // but change username and password
     }
