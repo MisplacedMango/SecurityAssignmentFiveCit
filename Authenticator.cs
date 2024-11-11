@@ -13,7 +13,7 @@ public class Authenticator
     {
         try
         {
-            string s = "Host=localhost;Username=postgres;Password="+ postgresLogin +";Database=passwords";
+            string s = "Host=localhost;Username=postgres;Password="+ LoginCredentials.filecontent +";Database=university";
             con = new NpgsqlConnection(s);
             con.Open();
             
